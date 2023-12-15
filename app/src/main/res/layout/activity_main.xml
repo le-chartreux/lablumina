@@ -97,5 +97,25 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Start at boot" />
+
+        <Button
+            android:id="@+id/btnRequest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Envoyer requête" />
+
+        <TextView
+            android:id="@+id/tvLastValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dernière valeur" />
+
+        <TextView
+            android:id="@+id/tvAllData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical"
+            android:text="Toutes les données" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

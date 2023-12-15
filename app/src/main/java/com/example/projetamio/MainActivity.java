@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.RadioGroup;
@@ -17,6 +18,8 @@ import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import androidx.core.content.ContextCompat;
+
+import com.example.projetamio.ui.theme.FetchDataTask;
 
 public class MainActivity extends Activity {
 
@@ -41,6 +44,14 @@ public class MainActivity extends Activity {
             receiverFlags = ContextCompat.RECEIVER_NOT_EXPORTED;
         }
         ContextCompat.registerReceiver(this, myBootBroadcastReceiver, filter, receiverFlags);
+
+        Button btnRequest = this.findViewById(R.id.btnRequest);
+        btnRequest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new FetchDataTask(MainActivity.this, findViewById(android.R.id.content).getRootView()).execute("http://iotlab.telecomnancy.eu:8080/iotlab/rest/data/1/light1/last");
+            }
+        });
 
         Log.d("MainActivity", "Created");
     }
