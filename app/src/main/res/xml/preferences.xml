@@ -1,0 +1,63 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="Envoie du mail">
+
+        <EditTextPreference
+            app:key="addressMail"
+            app:title="Adresse e-mail du destinataire"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="Plages horaires dans la semaine">
+
+        <ListPreference
+            app:defaultValue="19h"
+            app:entries="@array/start_time"
+            app:entryValues="@array/start_time_value"
+            app:key="start_time_s"
+            app:title="Début"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            app:defaultValue="23h"
+            app:entries="@array/end_time"
+            app:entryValues="@array/end_time_value"
+            app:key="end_time_s"
+            app:title="Fin"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="Plages horaires en weekend">
+
+        <ListPreference
+            app:defaultValue="19h"
+            app:entries="@array/start_time"
+            app:entryValues="@array/start_time_value"
+            app:key="start_time_w"
+            app:title="Début"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            app:defaultValue="23h"
+            app:entries="@array/end_time"
+            app:entryValues="@array/end_time_value"
+            app:key="end_time_w"
+            app:title="Fin"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+    <PreferenceCategory app:title="@string/messages_header">
+
+        <EditTextPreference
+            app:key="message"
+            app:title="Message à envoyer"
+            app:useSimpleSummaryProvider="true" />
+
+
+
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
