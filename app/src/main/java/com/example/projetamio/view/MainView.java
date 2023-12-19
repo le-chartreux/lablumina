@@ -1,14 +1,14 @@
-package com.example.projetamio.views;
+package com.example.projetamio.view;
 
 import android.annotation.SuppressLint;
 import android.os.Handler;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.projetamio.R;
 import com.example.projetamio.fetchedData.FetchedData;
 import com.example.projetamio.fetchedData.FetchedDataRequest;
 import com.example.projetamio.utils.Constants;
-import com.example.projetamio.R;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -58,22 +58,39 @@ public class MainView {
             com.example.projetamio.fetchedData.FetchedData.SensorInformation currentSensorInformation = fetchedData.data.get(i);
             FetchedDataView currentFetchedDataView = fetchedDataViews.get(i);
 
-            // Update the name of the sensor.
-            currentFetchedDataView.getName().setText(String.valueOf(currentSensorInformation.mote));
-
             // In case the sensor value is more than a specific threshold, led is on.
             if (currentSensorInformation.value > Constants.SENSOR_THRESHOLD)
-                currentFetchedDataView.getLed().setImageResource(R.color.led_on);
+                currentFetchedDataView.getBulb().post(new Runnable() {
+                    @Override
+                    public void run() {
+                        currentFetchedDataView.getBulb().setImageResource(R.drawable.bulb_on);
+                    }
+                });
             else
-                currentFetchedDataView.getLed().setImageResource(R.color.led_off);
+                currentFetchedDataView.getBulb().post(new Runnable() {
+                    @Override
+                    public void run() {
+                        currentFetchedDataView.getBulb().setImageResource(R.drawable.bulb_off);
+                    }
+                });
 
             // Update the value of the sensor.
-            currentFetchedDataView.getValue().setText(String.valueOf(currentSensorInformation.value));
+            currentFetchedDataView.getValue().post(new Runnable() {
+                @Override
+                public void run() {
+                    currentFetchedDataView.getValue().setText("Mote: " + String.valueOf(currentSensorInformation.mote) + " - Value : " + String.valueOf(currentSensorInformation.value));
+                }
+            });
         }
 
-        // Format the date to a more readable value, and then update the UI with the current time.
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-        time.setText(formatter.format(LocalDateTime.now()));
+        time.post(new Runnable() {
+            @Override
+            public void run() {
+                // Format the date to a more readable value, and then update the UI with the current time.
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+                time.setText(formatter.format(LocalDateTime.now()));
+            }
+        });
     }
 
     public void setSensorShow(List<FetchedDataView> fetchedDataViews) {

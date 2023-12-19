@@ -3,7 +3,7 @@ package com.example.projetamio.fetchedData;
 import androidx.annotation.NonNull;
 
 import com.example.projetamio.utils.Constants;
-import com.example.projetamio.views.MainView;
+import com.example.projetamio.view.MainView;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;

@@ -1,12 +1,10 @@
 package com.example.projetamio;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.Manifest;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -15,11 +13,11 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
-import com.example.projetamio.mail.MailClient;
+import com.example.projetamio.mail.MailService;
 import com.example.projetamio.notifications.NotificationService;
 import com.example.projetamio.settings.SettingsActivity;
-import com.example.projetamio.views.FetchedDataView;
-import com.example.projetamio.views.MainView;
+import com.example.projetamio.view.FetchedDataView;
+import com.example.projetamio.view.MainView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,41 +25,22 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.d("debug","First");
         super.onCreate(savedInstanceState);
-        Log.d("debug","Second");
         setContentView(R.layout.activity_main);
-        Log.d("debug","Third");
 
-        // Load all elements from the UI.
         loadViewElements();
-        Log.d("debug","Four");
 
-        // Associate button with sensor update.
         MainView.getInstance().configureUpdateButton();
-        Log.d("debug","Five");
-
-        // Associate button with setting activity.
         associateConfigurationButton();
-        Log.d("debug","Six");
-
-
-        // Load main service
-        Intent mainService = new Intent(this, MainService.class);
-        Log.d("debug","Seven");
-        startService(mainService);
-        Log.d("debug","Eight");
-
-
-        // Send mail service
-        sendMail("frereswan@gmail.com");
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             checkNotificationPermissions();
         }
+        Intent notificationService = new Intent(this, NotificationService.class);
+        startService(notificationService);
 
-        Intent intent = new Intent(this, NotificationService.class);
-        super.startService(intent);
+        Intent mailService = new Intent(this, MailService.class);
+        startService(mailService);
     }
 
     /**
@@ -69,10 +48,10 @@ public class MainActivity extends AppCompatActivity {
      */
     private void loadViewElements() {
         List<FetchedDataView> fetchedDataViews = new ArrayList<>();
-        fetchedDataViews.add(new FetchedDataView(findViewById(R.id.name_1), findViewById(R.id.led_1), findViewById(R.id.value_1)));
-        fetchedDataViews.add(new FetchedDataView(findViewById(R.id.name_2), findViewById(R.id.led_2), findViewById(R.id.value_2)));
-        fetchedDataViews.add(new FetchedDataView(findViewById(R.id.name_3), findViewById(R.id.led_3), findViewById(R.id.value_3)));
-        fetchedDataViews.add(new FetchedDataView(findViewById(R.id.name_4), findViewById(R.id.led_4), findViewById(R.id.value_4)));
+        fetchedDataViews.add(new FetchedDataView(findViewById(R.id.imageView1_2), findViewById(R.id.textView1)));
+        fetchedDataViews.add(new FetchedDataView(findViewById(R.id.imageView2_2), findViewById(R.id.textView2)));
+        fetchedDataViews.add(new FetchedDataView(findViewById(R.id.imageView3_2), findViewById(R.id.textView3)));
+        fetchedDataViews.add(new FetchedDataView(findViewById(R.id.imageView4_2), findViewById(R.id.textView4)));
         MainView.getInstance().setSensorShow(fetchedDataViews);
 
         TextView time = findViewById(R.id.time);
@@ -112,17 +91,5 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-    }
-
-    /**
-     * This function allow us to send a mail with two given address TODO: compete this function and associate with a button
-     * @param destAddress the e-mail address that we want to send to
-     */
-    private void sendMail(String destAddress){
-
-        MailClient client = new MailClient(this, destAddress , "AMIO", "Salut c'est moi Tchoupi");
-
-        client.execute();
-        Log.d("debug","Sending Mail");
     }
 }

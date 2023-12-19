@@ -10,6 +10,7 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
@@ -63,6 +64,7 @@ public class NotificationService extends Service {
                 });
             }
         };
+        sendNotification(1, "Test", "Notif de demarrage");
         timer.schedule(task, 0, Constants.SENSOR_UPDATE_INTERVAL_IN_MINUTES * 60 * 1000);
     }
 
@@ -123,14 +125,12 @@ public class NotificationService extends Service {
                 .setAutoCancel(true)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
-        // In case use has done the rights to send notifications, it will send.
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS)
                 == PackageManager.PERMISSION_GRANTED) {
             NotificationManager notificationManager =
                     (NotificationManager) getSystemService(Service.NOTIFICATION_SERVICE);
             notificationManager.notify(id, builder.build());
         }
-
     }
 
     /**
@@ -138,15 +138,11 @@ public class NotificationService extends Service {
      */
     @SuppressLint("ObsoleteSdkInt")
     private void createNotificationChannel() {
-        // Create the NotificationChannel, but only on API 26+ because
-        // the NotificationChannel class is not in the Support Library.
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             int importance = NotificationManager.IMPORTANCE_DEFAULT;
             NotificationChannel channel = new NotificationChannel(Constants.NOTIFICATION_CHANNEL_NAME,
                     Constants.NOTIFICATION_CHANNEL_NAME, importance);
 
-            // Register the channel with the system; you can't change the importance
-            // or other notification behaviors after this.
             NotificationManager notificationManager = getSystemService(NotificationManager.class);
             notificationManager.createNotificationChannel(channel);
         }

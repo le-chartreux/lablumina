@@ -4,284 +4,210 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_mobile"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <!--
-    <TextView
-        android:id="@+id/text_title"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toTopOf="@+id/time"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.25"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:text="Capteurs"
-        android:padding="10sp"
-        android:layout_marginBottom="20sp"
-        android:textSize="30sp"/>
-    -->
+        app:layout_constraintVertical_bias="1.0">
 
-    <LinearLayout
-        android:id="@+id/first_row"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="40sp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:textAlignment="center"
-        android:layout_marginBottom="50px"
-        android:gravity="center"
-        >
-        <LinearLayout
-            android:layout_width="300px"
+        <TextView
+            android:id="@+id/text_title"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:layout_marginTop="20dp"
+            android:text="Lights Status"
             android:textAlignment="center"
-            android:layout_marginRight="100px"
-            android:background="@drawable/rounded_edge"
-            android:gravity="center">
-            <TextView
-                android:id="@+id/name_1"
-                android:textAlignment="center"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="1"
-                android:layout_marginTop="20sp"
-                android:textStyle="bold"
-                android:textColor="@color/normal_text"
-                android:textSize="20sp"/>
+            android:textSize="30sp"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/led_1"
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="409dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="76dp"
+            android:background="#6B3F51B5"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imageView1_1"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                app:srcCompat="@color/led_off"
-                android:layout_margin="10dp"
-                android:padding="10dp"
-                app:strokeWidth="5dp"
-                app:strokeColor="@color/black"
-                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
-                />
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/bg1" />
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:text="Value:"
-                android:textStyle="bold"
-                android:textColor="@color/normal_text"
-                android:textSize="20sp"
-                />
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="-" />
 
-            <TextView
-                android:id="@+id/value_1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:textColor="@color/normal_text"
-                android:layout_marginBottom="20sp"
-                android:text="-"
-                android:textSize="20sp"
-                />
+            <ImageView
+                android:id="@+id/imageView1_2"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:src="@drawable/bulb_off" />
+
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="300px"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:textAlignment="center"
-            android:background="@drawable/rounded_edge"
-            android:gravity="center">
+            android:id="@+id/linearLayout2"
+            android:layout_width="409dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="216dp"
+            android:background="#6B3F51B5"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/name_2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:textColor="@color/normal_text"
-                android:text="2"
-                android:layout_marginTop="20sp"
-                android:textStyle="bold"
-                android:textSize="20sp"/>
-
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/led_2"
+            <ImageView
+                android:id="@+id/imageView2_1"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                app:srcCompat="@color/led_off"
-                android:layout_margin="10dp"
-                android:padding="10dp"
-                app:strokeWidth="5dp"
-                app:strokeColor="@color/black"
-                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
-                />
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/bg2" />
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:text="Value:"
-                android:textStyle="bold"
-                android:textColor="@color/normal_text"
-                android:textSize="20sp"
-                />
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="-" />
 
-            <TextView
-                android:id="@+id/value_2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:textColor="@color/normal_text"
-                android:text="-"
-                android:layout_marginBottom="20sp"
-                android:textSize="20sp"
-                />
+            <ImageView
+                android:id="@+id/imageView2_2"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:src="@drawable/bulb_off" />
+
         </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/second_row"
-        app:layout_constraintTop_toBottomOf="@id/first_row"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60sp"
-        android:orientation="horizontal"
-        android:textAlignment="center"
-        android:gravity="center">
 
         <LinearLayout
-            android:layout_width="300px"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:textAlignment="center"
-            android:layout_marginRight="100px"
-            android:background="@drawable/rounded_edge"
-            android:gravity="center">
+            android:id="@+id/linearLayout3"
+            android:layout_width="409dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="356dp"
+            android:background="#6B3F51B5"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/name_3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:textColor="@color/normal_text"
-                android:text="3"
-                android:layout_marginTop="20sp"
-                android:textStyle="bold"
-                android:textSize="20sp"/>
-
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/led_3"
+            <ImageView
+                android:id="@+id/imageView3_1"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                app:srcCompat="@color/led_off"
-                android:layout_margin="10dp"
-                android:padding="10dp"
-                app:strokeWidth="5dp"
-                app:strokeColor="@color/black"
-                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
-                />
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/bg3" />
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:text="Value:"
-                android:textStyle="bold"
-                android:textColor="@color/normal_text"
-                android:textSize="20sp"
-                />
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="-" />
 
-            <TextView
-                android:id="@+id/value_3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:textColor="@color/normal_text"
-                android:text="-"
-                android:layout_marginBottom="20sp"
-                android:textSize="20sp"
-                />
+            <ImageView
+                android:id="@+id/imageView3_2"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:src="@drawable/bulb_off" />
+
         </LinearLayout>
+
         <LinearLayout
-            android:layout_width="300px"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:textAlignment="center"
-            android:background="@drawable/rounded_edge"
-            android:gravity="center">
+            android:id="@+id/linearLayout4"
+            android:layout_width="409dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="496dp"
+            android:background="#6B3F51B5"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/name_4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="4"
-                android:textAlignment="center"
-                android:textStyle="bold"
-                android:layout_marginTop="20sp"
-                android:textColor="@color/normal_text"
-                android:textSize="20sp"/>
-
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/led_4"
+            <ImageView
+                android:id="@+id/imageView4_1"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                app:srcCompat="@color/led_off"
-                android:layout_margin="10dp"
-                android:padding="10dp"
-                app:strokeWidth="5dp"
-                app:strokeColor="@color/black"
-                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
-                />
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/bg4" />
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:text="Value:"
-                android:textStyle="bold"
-                android:textColor="@color/normal_text"
-                android:textSize="20sp"
-                />
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="-" />
 
-            <TextView
-                android:id="@+id/value_4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:textColor="@color/normal_text"
-                android:text="-"
-                android:layout_marginBottom="20sp"
-                android:textSize="20sp"
-                />
+            <ImageView
+                android:id="@+id/imageView4_2"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:src="@drawable/bulb_off" />
+
         </LinearLayout>
-    </LinearLayout>
 
-    <TextView
-        android:id="@+id/time"
-        app:layout_constraintBottom_toTopOf="@id/obs"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginBottom="20sp"
-        android:text="-"
-        android:textSize="20dp"/>
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="-"
+            android:textSize="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
+            tools:layout_editor_absoluteX="0dp" />
 
-    <TextView
-        android:id="@+id/obs"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginBottom="20sp"
-        android:textColor="@color/red"
-        android:text="OBS: You should should be connected to TN VPN or EDUROAM."
-        android:textSize="12dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_bar"
-        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -290,17 +216,18 @@
             <Button
                 android:id="@+id/update"
                 android:layout_width="0px"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="Update"/>
+                android:layout_weight="1"
+                android:text="Update" />
 
             <Button
                 android:id="@+id/configuration"
                 android:layout_width="0px"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="Configuration"/>
+                android:layout_weight="1"
+                android:text="Configuration" />
         </LinearLayout>
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
