@@ -13,7 +13,6 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
-import com.example.projetamio.mail.MailClient;
 import com.example.projetamio.mail.MailService;
 import com.example.projetamio.notifications.NotificationService;
 import com.example.projetamio.settings.SettingsActivity;
@@ -32,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         loadViewElements();
 
         MainView.getInstance().configureUpdateButton();
-        associateConfigurationButton();
+        associateConfigurationButtonWithActivitySettings();
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             checkNotificationPermissions();
@@ -64,8 +63,11 @@ public class MainActivity extends AppCompatActivity {
 
     @RequiresApi(api = Build.VERSION_CODES.TIRAMISU)
     private void checkNotificationPermissions() {
-        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS)
-                != PackageManager.PERMISSION_GRANTED) {
+        boolean POST_NOTIFICATIONS_NOT_ALLOWED = (
+            ActivityCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS)
+                != PackageManager.PERMISSION_GRANTED
+        );
+        if (POST_NOTIFICATIONS_NOT_ALLOWED) {
             boolean isPostPermitted = ActivityCompat.shouldShowRequestPermissionRationale(this,
                     Manifest.permission.POST_NOTIFICATIONS);
 
@@ -79,16 +81,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    /**
-     * Associate the configuration button with setting activities
-     */
-    private void associateConfigurationButton(){
-        MainView.getInstance().getConfiguration().setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
-                startActivity(intent);
-            }
+    private void associateConfigurationButtonWithActivitySettings(){
+        MainView.getInstance().getConfiguration().setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+            startActivity(intent);
         });
     }
 }
