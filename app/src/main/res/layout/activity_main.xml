@@ -31,7 +31,7 @@
 
         <LinearLayout
             android:id="@+id/linearLayout1"
-            android:layout_width="409dp"
+            android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_marginTop="76dp"
             android:background="#6B3F51B5"
@@ -45,8 +45,8 @@
                 android:id="@+id/imageView1_1"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_marginTop="20dp"
                 android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
                 android:src="@drawable/bg1" />
 
             <TextView
@@ -71,9 +71,9 @@
 
         <LinearLayout
             android:id="@+id/linearLayout2"
-            android:layout_width="409dp"
+            android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:layout_marginTop="216dp"
+            android:layout_marginTop="196dp"
             android:background="#6B3F51B5"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
@@ -85,8 +85,8 @@
                 android:id="@+id/imageView2_1"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_marginTop="20dp"
                 android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
                 android:src="@drawable/bg2" />
 
             <TextView
@@ -111,9 +111,9 @@
 
         <LinearLayout
             android:id="@+id/linearLayout3"
-            android:layout_width="409dp"
+            android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:layout_marginTop="356dp"
+            android:layout_marginTop="316dp"
             android:background="#6B3F51B5"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
@@ -125,8 +125,8 @@
                 android:id="@+id/imageView3_1"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_marginTop="20dp"
                 android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
                 android:src="@drawable/bg3" />
 
             <TextView
@@ -151,9 +151,9 @@
 
         <LinearLayout
             android:id="@+id/linearLayout4"
-            android:layout_width="409dp"
+            android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:layout_marginTop="496dp"
+            android:layout_marginTop="436dp"
             android:background="#6B3F51B5"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
@@ -165,8 +165,8 @@
                 android:id="@+id/imageView4_1"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_marginTop="20dp"
                 android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
                 android:src="@drawable/bg4" />
 
             <TextView
