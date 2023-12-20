@@ -51,7 +51,7 @@
 
             <TextView
                 android:id="@+id/textView1"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
@@ -61,7 +61,7 @@
 
             <ImageView
                 android:id="@+id/imageView1_2"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="80dp"
                 android:layout_marginTop="10dp"
                 android:layout_weight="1"
@@ -91,7 +91,7 @@
 
             <TextView
                 android:id="@+id/textView2"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
@@ -101,7 +101,7 @@
 
             <ImageView
                 android:id="@+id/imageView2_2"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="80dp"
                 android:layout_marginTop="10dp"
                 android:layout_weight="1"
@@ -131,7 +131,7 @@
 
             <TextView
                 android:id="@+id/textView3"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
@@ -141,7 +141,7 @@
 
             <ImageView
                 android:id="@+id/imageView3_2"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="80dp"
                 android:layout_marginTop="10dp"
                 android:layout_weight="1"
@@ -171,7 +171,7 @@
 
             <TextView
                 android:id="@+id/textView4"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
@@ -181,7 +181,7 @@
 
             <ImageView
                 android:id="@+id/imageView4_2"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="80dp"
                 android:layout_marginTop="10dp"
                 android:layout_weight="1"
