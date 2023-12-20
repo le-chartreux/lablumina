@@ -22,7 +22,7 @@ public class MailClient extends AsyncTask<Void, Void, Void> {
     private final String subject;
     private final String message;
 
-    public MailClient(Context context, String email, String subject, String message) {
+    public MailClient(String email, String subject, String message) {
         this.email = email;
         this.subject = subject;
         this.message = message;

@@ -32,7 +32,7 @@ public class MailService extends Service {
     }
 
     public void onCreate() {
-        Log.d("MailService", "Hello, mail service lancé");
+        Log.d("MailService", "Created");
         updateSetting();
         this.verifyLights();
     }
@@ -40,13 +40,12 @@ public class MailService extends Service {
 
     public void onDestroy() {
         this.timer.cancel();
-        Log.d("MailService", "Hello, mail service arrêté");
+        Log.d("MailService", "Destroyed");
     }
 
     @Override
     public IBinder onBind(Intent intent) {
-        // TODO: Return the communication channel to the service.
-        throw new UnsupportedOperationException("Not yet implemented");
+        throw new UnsupportedOperationException("Not implemented.");
     }
 
     public void verifyLights() {
@@ -69,8 +68,6 @@ public class MailService extends Service {
                             }
                         }
                     }
-
-
                 });
             }
         };
@@ -78,13 +75,12 @@ public class MailService extends Service {
     }
 
     public void sendMail() {
-
         if (addrDst != null && message != null) {
-            MailClient mailClient = new MailClient(this, addrDst, "IOT Lab Lights status", message);
+            MailClient mailClient = new MailClient(addrDst, "IOT Lab Lights status", message);
             mailClient.execute();
-            Log.d("debug", "Sending mail");
+            Log.d("MailService", "Email sent.");
         } else {
-            Log.d("debug", "Mail sending failed");
+            Log.d("MailService", "Email sending failed.");
         }
     }
 
@@ -108,7 +104,7 @@ public class MailService extends Service {
     private void updateSetting() {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         this.addrDst = preferences.getString("addressMail", "swan.frere@telecomnancy.net");
-        this.message = preferences.getString("message", "Attention, une nouvelle lumière allumée!");
+        this.message = preferences.getString("message", "Warning, a new light is on!");
         this.startTimeS = Integer.parseInt(preferences.getString("start_time_s", "19"));
         this.endTimeS = Integer.parseInt(preferences.getString("end_time_s", "23"));
         this.startTimeW = Integer.parseInt(preferences.getString("start_time_w", "23"));

@@ -37,8 +37,7 @@ public class NotificationService extends Service {
     private final Timer timer = new Timer(true);
     int notification_id = 1;
 
-    public NotificationService() {
-    }
+    public NotificationService() {}
 
     @Override
     public IBinder onBind(Intent intent) {
@@ -63,13 +62,10 @@ public class NotificationService extends Service {
                 });
             }
         };
-        sendNotification(1, "Test", "Notif de demarrage");
+        sendNotification(1, "Demonstration", "Just a message to demonstrate that notifications work.");
         timer.schedule(task, 0, Constants.SENSOR_UPDATE_INTERVAL_IN_MINUTES * 60 * 1000);
     }
 
-    /**
-     * Make a request to the API and verify if any sensor was turned on.
-     */
     private void verifyIfAnySensorChangedState() {
         Call call = FetchedDataRequest.getSensorInformation();
 
@@ -109,13 +105,6 @@ public class NotificationService extends Service {
         });
     }
 
-    /**
-     * Send a notification to the android phone.
-     *
-     * @param id          -> Id of the notification, should be unique.
-     * @param title       -> Title of the notification.
-     * @param description -> Description of the notification.
-     */
     private void sendNotification(int id, String title, String description) {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, Constants.NOTIFICATION_CHANNEL_NAME)
                 .setContentTitle(title)
@@ -132,9 +121,6 @@ public class NotificationService extends Service {
         }
     }
 
-    /**
-     * Create a notification channel to send information about the application.
-     */
     @SuppressLint("ObsoleteSdkInt")
     private void createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
