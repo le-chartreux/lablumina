@@ -50,9 +50,6 @@ public class MailService extends Service {
         throw new UnsupportedOperationException("Not yet implemented");
     }
 
-    /**
-     * Plan the verification of values of our lights
-     */
     public void verifyLights(){
         this.timer= new Timer();
         final Handler handler = new Handler();
@@ -86,23 +83,16 @@ public class MailService extends Service {
         timer.schedule(task, 0, Constants.SENSOR_UPDATE_INTERVAL_IN_MINUTES * 1000* 60);
     }
 
-
-    /**
-     * This function allow us to send a mail with two given address TODO: compete this function and associate with a button
-     */
     public void sendMail(){
 
         if (addrDst != null && message!= null){
-            MailClient javaMailAPI = new MailClient(this, addrDst , "IOT Lab Lights status", message);
-            javaMailAPI.execute();
-
+            MailClient mailClient = new MailClient(this, addrDst , "IOT Lab Lights status", message);
+            mailClient.execute();
             Log.d("debug","Sending mail");
         }
         else {
             Log.d("debug","Mail sending failed");
         }
-
-
     }
 
     private boolean checkDay(){
@@ -129,7 +119,7 @@ public class MailService extends Service {
 
     private void updateSetting() {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        this.addrDst = preferences.getString("addressMail", "wenjia.tang@telecomnancy.net");
+        this.addrDst = preferences.getString("addressMail", "swan.frere@telecomnancy.net");
         this.message = preferences.getString("message", "Attention, une nouvelle lumière allumée!");
         this.startTimeS = Integer.parseInt(preferences.getString("start_time_s","19")) ;
         this.endTimeS = Integer.parseInt(preferences.getString("end_time_s","23"));

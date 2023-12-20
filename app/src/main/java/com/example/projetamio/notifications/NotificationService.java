@@ -84,18 +84,18 @@ public class NotificationService extends Service {
             public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
                 List<Boolean> oldSensorState = new ArrayList<>();
 
+                // Treat the new response and save it.
+                FetchedDataRequest.treatJSONResponseAndUpdateUI(response);
+
                 // Add true if sensor is on, false otherwise.
-                for (int i = 0; i < Constants.QUANTITY_OF_SENSORS; i++) {
+                for (int i = 0; i < FetchedData.getInstance().data.size(); i++) {
                     float oldSensorValue = FetchedData.getInstance().data.get(i).value;
 
                     oldSensorState.add(oldSensorValue >= Constants.SENSOR_THRESHOLD);
                 }
 
-                // Treat the new response and save it.
-                FetchedDataRequest.treatJSONResponseAndUpdateUI(response);
-
                 // Verify if all the sensors that were off are still off.
-                for (int i = 0; i < Constants.QUANTITY_OF_SENSORS; i++) {
+                for (int i = 0; i < FetchedData.getInstance().data.size(); i++) {
                     FetchedData.SensorInformation currentNewSensor =
                             FetchedData.getInstance().data.get(i);
 

@@ -13,6 +13,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+import com.example.projetamio.mail.MailClient;
 import com.example.projetamio.mail.MailService;
 import com.example.projetamio.notifications.NotificationService;
 import com.example.projetamio.settings.SettingsActivity;

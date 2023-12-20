@@ -37,7 +37,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
 
     private String getMailAddressDst(){
         this.getSetting("addressMail","");
-        String addressMail = this.getSetting("addressMail","wenjia.tang@telecomnancy.net");
+        String addressMail = this.getSetting("addressMail","swan.frere@telecomnancy.net");
         return addressMail;
     }
 

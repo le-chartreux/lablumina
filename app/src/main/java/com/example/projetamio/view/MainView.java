@@ -2,6 +2,7 @@ package com.example.projetamio.view;
 
 import android.annotation.SuppressLint;
 import android.os.Handler;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -54,7 +55,13 @@ public class MainView {
      * @param fetchedData -> JSON returned from the request.
      */
     public void updateViewAccordingToData(FetchedData fetchedData) {
-        for (int i = 0; i < Constants.QUANTITY_OF_SENSORS; i++) {
+        if (fetchedData.data.size() == 0){
+            Log.d("debug", "No data fetched");
+            return;
+        }
+
+        int limit = Math.min(Constants.MAX_QUANTITY_OF_SENSORS, fetchedData.data.size());
+        for (int i = 0; i < limit; i++) {
             com.example.projetamio.fetchedData.FetchedData.SensorInformation currentSensorInformation = fetchedData.data.get(i);
             FetchedDataView currentFetchedDataView = fetchedDataViews.get(i);
 
