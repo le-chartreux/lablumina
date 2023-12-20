@@ -20,7 +20,7 @@ To use the app, you must be connected to the Eduroam network (directly or with a
 
 #### 📦 From APK
 
-Download the `.apk` file available [here](TODO) then install it.
+Download the `.apk` file available [here](https://github.com/le-chartreux/ProjetAMIO/releases/download/1.0.0/ProjetAMIO.apk) then install it.
 You may need to authorized unknown sources.
 
 #### 📔 From source
