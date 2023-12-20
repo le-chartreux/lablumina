@@ -35,9 +35,7 @@ public class MainView {
             FetchedDataRequest.getAndUpdateSensorInformation();
 
             // After BUTTON_DEACTIVATION_TIME_IN_SECONDS, the button should be able to be clicked again.
-            new Handler().postDelayed(() -> {
-                update.setEnabled(true);
-            }, Constants.BUTTON_DEACTIVATION_TIME_IN_SECONDS * 1000);
+            new Handler().postDelayed(() -> update.setEnabled(true), Constants.BUTTON_DEACTIVATION_TIME_IN_SECONDS * 1000);
         });
     }
 
@@ -47,7 +45,7 @@ public class MainView {
             return;
         }
 
-        int limit = Math.min(Constants.MAX_QUANTITY_OF_SENSORS, fetchedData.data.size());
+        int limit = Math.min(Constants.MAX_NUMBER_OF_SENSORS, fetchedData.data.size());
         for (int i = 0; i < limit; i++) {
             SensorInformation currentSensorInformation = fetchedData.data.get(i);
             FetchedDataView currentFetchedDataView = fetchedDataViews.get(i);

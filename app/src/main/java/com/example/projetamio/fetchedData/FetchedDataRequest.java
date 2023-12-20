@@ -18,7 +18,7 @@ public class FetchedDataRequest {
 
     public static Call getSensorInformation() {
         Request request = new Request.Builder()
-                .url(Constants.BASE_URL)
+                .url(Constants.IOTLAB_BASE_URL)
                 .build();
 
         return new OkHttpClient().newCall(request);
