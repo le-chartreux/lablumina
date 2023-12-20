@@ -32,7 +32,6 @@ public class FetchedDataRequest {
             public void onResponse(@NonNull Call call, @NonNull Response response)
                     throws IOException {
                 if (response.isSuccessful() && response.body() != null) {
-                    // Convert JSON data to class and update the UI.
                     treatJSONResponseAndUpdateUI(response);
                 }
             }

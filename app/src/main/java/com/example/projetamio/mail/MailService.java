@@ -10,7 +10,6 @@ import android.util.Log;
 import androidx.preference.PreferenceManager;
 
 import com.example.projetamio.fetchedData.FetchedData;
-import com.example.projetamio.settings.SettingsFragment;
 import com.example.projetamio.utils.Constants;
 
 import java.time.DayOfWeek;
@@ -28,7 +27,6 @@ public class MailService extends Service {
     private int endTimeW = 23;
     private String addrDst;
     private String message;
-    private SettingsFragment settingsFragment;
 
     public MailService() {
     }
@@ -56,27 +54,23 @@ public class MailService extends Service {
         final Handler handler = new Handler();
         TimerTask task = new TimerTask() {
             public void run() {
-                handler.post(new Runnable() {
-                    public void run() {
-
-                        updateSetting();
-                        // to execute the action of verification TODO
-                        if (checkDay()) {
-                            if (checkTime(startTimeS, endTimeS)) {
-                                if (FetchedData.getInstance().data != null) {
-                                    sendMail();
-                                }
-                            }
-                        } else {
-                            if (checkTime(startTimeW, endTimeW)) {
-                                if (FetchedData.getInstance().data != null) {
-                                    sendMail();
-                                }
+                handler.post(() -> {
+                    updateSetting();
+                    if (checkDay()) {
+                        if (checkTime(startTimeS, endTimeS)) {
+                            if (FetchedData.getInstance().data != null) {
+                                sendMail();
                             }
                         }
-
-
+                    } else {
+                        if (checkTime(startTimeW, endTimeW)) {
+                            if (FetchedData.getInstance().data != null) {
+                                sendMail();
+                            }
+                        }
                     }
+
+
                 });
             }
         };

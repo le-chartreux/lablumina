@@ -13,20 +13,16 @@ import jakarta.mail.MessagingException;
 import jakarta.mail.PasswordAuthentication;
 import jakarta.mail.Session;
 import jakarta.mail.Transport;
-import jakarta.mail.internet.AddressException;
 import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;
 
 public class MailClient extends AsyncTask<Void, Void, Void> {
-    private final Context context;
 
-    private Session session;
     private final String email;
     private final String subject;
     private final String message;
 
     public MailClient(Context context, String email, String subject, String message) {
-        this.context = context;
         this.email = email;
         this.subject = subject;
         this.message = message;
@@ -41,7 +37,7 @@ public class MailClient extends AsyncTask<Void, Void, Void> {
         properties.put("mail.smtp.auth", "true");
         properties.put("mail.smtp.port", "465");
 
-        session = Session.getDefaultInstance(properties, new Authenticator() {
+        Session session = Session.getDefaultInstance(properties, new Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(Constants.EMAIL, Constants.PASSWORD);
             }
@@ -54,8 +50,6 @@ public class MailClient extends AsyncTask<Void, Void, Void> {
             mimeMessage.setSubject(subject);
             mimeMessage.setText(message);
             Transport.send(mimeMessage);
-        } catch (AddressException e) {
-            throw new RuntimeException(e);
         } catch (MessagingException e) {
             throw new RuntimeException(e);
         }
