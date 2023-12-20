@@ -44,9 +44,6 @@ public class MainActivity extends AppCompatActivity {
         startService(mailService);
     }
 
-    /**
-     * Load all elements from the UI. These elements are stored in the MainView class.
-     */
     private void loadViewElements() {
         List<FetchedDataView> fetchedDataViews = new ArrayList<>();
         fetchedDataViews.add(new FetchedDataView(findViewById(R.id.imageView1_2), findViewById(R.id.textView1)));
@@ -69,14 +66,15 @@ public class MainActivity extends AppCompatActivity {
     private void checkNotificationPermissions() {
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS)
                 != PackageManager.PERMISSION_GRANTED) {
-            // Random number, just to verify if the result was good.
-            int requestCode = 1;
             boolean isPostPermitted = ActivityCompat.shouldShowRequestPermissionRationale(this,
                     Manifest.permission.POST_NOTIFICATIONS);
 
             if (!isPostPermitted) {
-                ActivityCompat.requestPermissions(this,
-                        new String[]{Manifest.permission.POST_NOTIFICATIONS}, 1);
+                ActivityCompat.requestPermissions(
+                    this,
+                    new String[]{Manifest.permission.POST_NOTIFICATIONS},
+                    1  // Random number, just to verify if the result was good.
+                );
             }
         }
     }
