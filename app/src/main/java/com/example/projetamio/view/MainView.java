@@ -47,7 +47,7 @@ public class MainView {
             return;
         }
 
-        int limit = Math.min(Constants.MAX_QUANTITY_OF_SENSORS, fetchedData.data.size());
+        int limit = Math.min(Constants.MAX_NUMBER_OF_SENSORS, fetchedData.data.size());
         for (int i = 0; i < limit; i++) {
             SensorInformation currentSensorInformation = fetchedData.data.get(i);
             FetchedDataView currentFetchedDataView = fetchedDataViews.get(i);

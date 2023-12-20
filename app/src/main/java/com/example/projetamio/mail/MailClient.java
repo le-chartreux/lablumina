@@ -1,6 +1,5 @@
 package com.example.projetamio.mail;
 
-import android.content.Context;
 import android.os.AsyncTask;
 
 import com.example.projetamio.utils.Constants;
@@ -39,13 +38,13 @@ public class MailClient extends AsyncTask<Void, Void, Void> {
 
         Session session = Session.getDefaultInstance(properties, new Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(Constants.EMAIL, Constants.PASSWORD);
+                return new PasswordAuthentication(Constants.EMAIL_SENDER, Constants.PASSWORD_FOR_EMAIL_SENDER);
             }
         });
 
         MimeMessage mimeMessage = new MimeMessage(session);
         try {
-            mimeMessage.setFrom(new InternetAddress(Constants.EMAIL));
+            mimeMessage.setFrom(new InternetAddress(Constants.EMAIL_SENDER));
             mimeMessage.addRecipients(Message.RecipientType.TO, String.valueOf(new InternetAddress(email)));
             mimeMessage.setSubject(subject);
             mimeMessage.setText(message);
