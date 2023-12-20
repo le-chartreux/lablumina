@@ -19,6 +19,7 @@ import androidx.core.app.NotificationCompat;
 import com.example.projetamio.R;
 import com.example.projetamio.fetchedData.FetchedData;
 import com.example.projetamio.fetchedData.FetchedDataRequest;
+import com.example.projetamio.fetchedData.SensorInformation;
 import com.example.projetamio.utils.Constants;
 
 import java.io.IOException;
@@ -96,7 +97,7 @@ public class NotificationService extends Service {
 
                 // Verify if all the sensors that were off are still off.
                 for (int i = 0; i < FetchedData.getInstance().data.size(); i++) {
-                    FetchedData.SensorInformation currentNewSensor =
+                    SensorInformation currentNewSensor =
                             FetchedData.getInstance().data.get(i);
 
                     // In case the sensor is now on, should send a notification.

@@ -14,11 +14,4 @@ public class FetchedData {
     public static void updateSingleton(FetchedData fetchedDataSingleton) {
         getInstance().data = fetchedDataSingleton.data;
     }
-
-    public static class SensorInformation {
-        public long timestamp;
-        public String label;
-        public float value;
-        public float mote;
-    }
 }

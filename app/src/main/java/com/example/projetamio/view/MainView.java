@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.example.projetamio.R;
 import com.example.projetamio.fetchedData.FetchedData;
 import com.example.projetamio.fetchedData.FetchedDataRequest;
+import com.example.projetamio.fetchedData.SensorInformation;
 import com.example.projetamio.utils.Constants;
 
 import java.time.LocalDateTime;
@@ -62,7 +63,7 @@ public class MainView {
 
         int limit = Math.min(Constants.MAX_QUANTITY_OF_SENSORS, fetchedData.data.size());
         for (int i = 0; i < limit; i++) {
-            com.example.projetamio.fetchedData.FetchedData.SensorInformation currentSensorInformation = fetchedData.data.get(i);
+            SensorInformation currentSensorInformation = fetchedData.data.get(i);
             FetchedDataView currentFetchedDataView = fetchedDataViews.get(i);
 
             // In case the sensor value is more than a specific threshold, led is on.
