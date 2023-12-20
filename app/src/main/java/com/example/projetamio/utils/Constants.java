@@ -7,6 +7,6 @@ public class Constants {
     public static final int SENSOR_THRESHOLD = 250;
     public static final int BUTTON_DEACTIVATION_TIME_IN_SECONDS = 5;
     public static final int SENSOR_UPDATE_INTERVAL_IN_MINUTES = 5;
-    public static final  String EMAIL = "frereswan@gmail.com";
+    public static final String EMAIL = "frereswan@gmail.com";
     public static final String PASSWORD = "warh jhma bnmp kuyz";
 }

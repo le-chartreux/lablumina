@@ -5,6 +5,8 @@ import android.os.AsyncTask;
 
 import com.example.projetamio.utils.Constants;
 
+import java.util.Properties;
+
 import jakarta.mail.Authenticator;
 import jakarta.mail.Message;
 import jakarta.mail.MessagingException;
@@ -15,13 +17,13 @@ import jakarta.mail.internet.AddressException;
 import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;
 
-import java.util.Properties;
-
 public class MailClient extends AsyncTask<Void, Void, Void> {
-    private Context context;
+    private final Context context;
 
     private Session session;
-    private String email, subject, message;
+    private final String email;
+    private final String subject;
+    private final String message;
 
     public MailClient(Context context, String email, String subject, String message) {
         this.context = context;

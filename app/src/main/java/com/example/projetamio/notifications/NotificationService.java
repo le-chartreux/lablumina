@@ -10,7 +10,6 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
@@ -35,9 +34,8 @@ import okhttp3.Response;
 
 public class NotificationService extends Service {
 
-    int notification_id = 1;
-
     private final Timer timer = new Timer(true);
+    int notification_id = 1;
 
     public NotificationService() {
     }
@@ -114,8 +112,8 @@ public class NotificationService extends Service {
     /**
      * Send a notification to the android phone.
      *
-     * @param id -> Id of the notification, should be unique.
-     * @param title -> Title of the notification.
+     * @param id          -> Id of the notification, should be unique.
+     * @param title       -> Title of the notification.
      * @param description -> Description of the notification.
      */
     private void sendNotification(int id, String title, String description) {

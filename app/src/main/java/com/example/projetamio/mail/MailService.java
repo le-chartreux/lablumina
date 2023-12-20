@@ -23,25 +23,26 @@ public class MailService extends Service {
 
     private Timer timer;
     private int startTimeS = 23;
-    private int endTimeS =6;
-    private int startTimeW =19;
+    private int endTimeS = 6;
+    private int startTimeW = 19;
     private int endTimeW = 23;
     private String addrDst;
     private String message;
     private SettingsFragment settingsFragment;
+
     public MailService() {
     }
 
-    public void onCreate(){
-        Log.d("MailService","Hello, mail service lancé");
+    public void onCreate() {
+        Log.d("MailService", "Hello, mail service lancé");
         updateSetting();
         this.verifyLights();
     }
 
 
-    public void onDestroy(){
+    public void onDestroy() {
         this.timer.cancel();
-        Log.d("MailService","Hello, mail service arrêté");
+        Log.d("MailService", "Hello, mail service arrêté");
     }
 
     @Override
@@ -50,8 +51,8 @@ public class MailService extends Service {
         throw new UnsupportedOperationException("Not yet implemented");
     }
 
-    public void verifyLights(){
-        this.timer= new Timer();
+    public void verifyLights() {
+        this.timer = new Timer();
         final Handler handler = new Handler();
         TimerTask task = new TimerTask() {
             public void run() {
@@ -60,14 +61,13 @@ public class MailService extends Service {
 
                         updateSetting();
                         // to execute the action of verification TODO
-                        if (checkDay()== true){
+                        if (checkDay()) {
                             if (checkTime(startTimeS, endTimeS)) {
                                 if (FetchedData.getInstance().data != null) {
                                     sendMail();
                                 }
                             }
-                        }
-                        else {
+                        } else {
                             if (checkTime(startTimeW, endTimeW)) {
                                 if (FetchedData.getInstance().data != null) {
                                     sendMail();
@@ -80,31 +80,25 @@ public class MailService extends Service {
                 });
             }
         };
-        timer.schedule(task, 0, Constants.SENSOR_UPDATE_INTERVAL_IN_MINUTES * 1000* 60);
+        timer.schedule(task, 0, Constants.SENSOR_UPDATE_INTERVAL_IN_MINUTES * 1000 * 60);
     }
 
-    public void sendMail(){
+    public void sendMail() {
 
-        if (addrDst != null && message!= null){
-            MailClient mailClient = new MailClient(this, addrDst , "IOT Lab Lights status", message);
+        if (addrDst != null && message != null) {
+            MailClient mailClient = new MailClient(this, addrDst, "IOT Lab Lights status", message);
             mailClient.execute();
-            Log.d("debug","Sending mail");
-        }
-        else {
-            Log.d("debug","Mail sending failed");
+            Log.d("debug", "Sending mail");
+        } else {
+            Log.d("debug", "Mail sending failed");
         }
     }
 
-    private boolean checkDay(){
+    private boolean checkDay() {
         LocalDate currentDate = LocalDate.now();
         DayOfWeek dayOfWeek = currentDate.getDayOfWeek();
-        if (dayOfWeek.getValue() >= DayOfWeek.MONDAY.getValue() &&
-                dayOfWeek.getValue() <= DayOfWeek.FRIDAY.getValue()){
-            return true;
-        }
-        else{
-            return false;
-        }
+        return dayOfWeek.getValue() >= DayOfWeek.MONDAY.getValue() &&
+                dayOfWeek.getValue() <= DayOfWeek.FRIDAY.getValue();
     }
 
     private boolean checkTime(int startTime, int endTime) {
@@ -121,9 +115,9 @@ public class MailService extends Service {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         this.addrDst = preferences.getString("addressMail", "swan.frere@telecomnancy.net");
         this.message = preferences.getString("message", "Attention, une nouvelle lumière allumée!");
-        this.startTimeS = Integer.parseInt(preferences.getString("start_time_s","19")) ;
-        this.endTimeS = Integer.parseInt(preferences.getString("end_time_s","23"));
-        this.startTimeW = Integer.parseInt(preferences.getString("start_time_w","23"));
-        this.endTimeW = Integer.parseInt(preferences.getString("end_time_w","6"));
+        this.startTimeS = Integer.parseInt(preferences.getString("start_time_s", "19"));
+        this.endTimeS = Integer.parseInt(preferences.getString("end_time_s", "23"));
+        this.startTimeW = Integer.parseInt(preferences.getString("start_time_w", "23"));
+        this.endTimeW = Integer.parseInt(preferences.getString("end_time_w", "6"));
     }
 }

@@ -1,11 +1,10 @@
 package com.example.projetamio;
 
+import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.Manifest;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -64,8 +63,8 @@ public class MainActivity extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.TIRAMISU)
     private void checkNotificationPermissions() {
         boolean POST_NOTIFICATIONS_NOT_ALLOWED = (
-            ActivityCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS)
-                != PackageManager.PERMISSION_GRANTED
+                ActivityCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS)
+                        != PackageManager.PERMISSION_GRANTED
         );
         if (POST_NOTIFICATIONS_NOT_ALLOWED) {
             boolean isPostPermitted = ActivityCompat.shouldShowRequestPermissionRationale(this,
@@ -73,15 +72,15 @@ public class MainActivity extends AppCompatActivity {
 
             if (!isPostPermitted) {
                 ActivityCompat.requestPermissions(
-                    this,
-                    new String[]{Manifest.permission.POST_NOTIFICATIONS},
-                    1  // Random number, just to verify if the result was good.
+                        this,
+                        new String[]{Manifest.permission.POST_NOTIFICATIONS},
+                        1  // Random number, just to verify if the result was good.
                 );
             }
         }
     }
 
-    private void associateConfigurationButtonWithActivitySettings(){
+    private void associateConfigurationButtonWithActivitySettings() {
         MainView.getInstance().getConfiguration().setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
             startActivity(intent);

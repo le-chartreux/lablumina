@@ -17,16 +17,12 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class MainView {
-    private List<FetchedDataView> fetchedDataViews;
-
-    private TextView time;
-
-    private Button update;
-
-    private Button configuration;
-
     @SuppressLint("StaticFieldLeak")
     private static final MainView MAIN_VIEW = new MainView();
+    private List<FetchedDataView> fetchedDataViews;
+    private TextView time;
+    private Button update;
+    private Button configuration;
 
     // Get singleton with all MainView information.
     public static MainView getInstance() {
@@ -56,7 +52,7 @@ public class MainView {
      * @param fetchedData -> JSON returned from the request.
      */
     public void updateViewAccordingToData(FetchedData fetchedData) {
-        if (fetchedData.data.size() == 0){
+        if (fetchedData.data.size() == 0) {
             Log.d("debug", "No data fetched");
             return;
         }
@@ -86,7 +82,7 @@ public class MainView {
             currentFetchedDataView.getValue().post(new Runnable() {
                 @Override
                 public void run() {
-                    currentFetchedDataView.getValue().setText("Mote: " + String.valueOf(currentSensorInformation.mote) + " - Value : " + String.valueOf(currentSensorInformation.value));
+                    currentFetchedDataView.getValue().setText("Mote: " + currentSensorInformation.mote + " - Value : " + currentSensorInformation.value);
                 }
             });
         }
@@ -113,11 +109,11 @@ public class MainView {
         this.update = update;
     }
 
-    public void setConfiguration(Button configuration) {
-        this.configuration = configuration;
-    }
-
     public Button getConfiguration() {
         return configuration;
+    }
+
+    public void setConfiguration(Button configuration) {
+        this.configuration = configuration;
     }
 }
