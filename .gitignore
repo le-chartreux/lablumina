@@ -35,3 +35,6 @@ out/
 
 ### VS Code ###
 .vscode/
+
+# things I added
+local.properties
