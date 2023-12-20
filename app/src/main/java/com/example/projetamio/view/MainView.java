@@ -35,9 +35,7 @@ public class MainView {
             FetchedDataRequest.getAndUpdateSensorInformation();
 
             // After BUTTON_DEACTIVATION_TIME_IN_SECONDS, the button should be able to be clicked again.
-            new Handler().postDelayed(() -> {
-                update.setEnabled(true);
-            }, Constants.BUTTON_DEACTIVATION_TIME_IN_SECONDS * 1000);
+            new Handler().postDelayed(() -> update.setEnabled(true), Constants.BUTTON_DEACTIVATION_TIME_IN_SECONDS * 1000);
         });
     }
 
