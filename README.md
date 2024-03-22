@@ -15,7 +15,6 @@ It's designed to show the status of light sensors in the IoT Lab.
       - [📔 From source](#-from-source)
    - [🕹️ Usage](#-usage)
    - [📸 Screenshots](#-screenshots)
-   - [📧 Contact](#-contact)
 
 ## 🚀 Features
 
@@ -55,7 +54,3 @@ Fell free to configure the settings to fit your preferences (and so don't Swan's
 | Home Screen (Before Data Fetching) | Home Screen (After Data Fetching) | Application Settings |
 |------------------------------------|-----------------------------------|----------------------|
 | ![Home screen before data fetching](docs/readme-material/home-screen-before-data-fetching.png) | ![Home screen after data fetching](docs/readme-material/home-screen-after-data-fetching.png) | ![Application settings](docs/readme-material/settings.png) |
-
-## 📧 Contact
-
-For any queries or suggestions, please contact Swan Frere at [swan.frere@telecomnancy.eu](mailto:swan.frere@telecomnancy.eu).
