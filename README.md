@@ -1,10 +1,7 @@
-# 🌟 ProjetAMIO - Group 18 📱
-
-## By Swan Frere, Nathan Rousseau and Alexandra Demski
+# 🌟 lablumina 📱
 
 This Android application, developed in Java, is a TELECOM Nancy project.
 It's designed to show the status of light sensors in the IoT Lab.
-The report of the project is available [here](docs/report.md) (only in french).
 
 ### 🚀 Features
 
