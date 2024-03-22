@@ -13,7 +13,7 @@ It's designed to show the status of light sensors in the IoT Lab.
    - [📲 Installation](#-installation)
       - [📦 From APK](#-from-apk)
       - [📔 From source](#-from-source)
-   - [🕹️ Usage](#-usage)
+   - [🕹️ Usage](#%F0%9F%95%B9%EF%B8%8F-usage)
    - [📸 Screenshots](#-screenshots)
 
 ## 🚀 Features
