@@ -10,6 +10,10 @@ It's designed to show the status of light sensors in the IoT Lab.
 - **📧 Automatic Email Alerts**: Get email notifications for sudden and significant changes in sensor data.
 - **⚙️ Settings Configuration**: Personalise the application's behavior to fit your preferences.
 
+### 🎥 Demo Video
+
+A brief demo of the app can be found [here](docs/readme-material/demo.mp4).
+
 ### 📋 Prerequisites
 
 To use the app, you must be connected to the Eduroam network (directly or with a VPN) to have access to IoT Lab's network.
@@ -37,10 +41,6 @@ Fell free to configure the settings to fit your preferences (and so don't Swan's
 - ![Home screen before data fetching](docs/readme-material/home-screen-before-data-fetching.png)
 - ![Home screen after data fetching](docs/readme-material/home-screen-after-data-fetching.png)
 - ![Application settings](docs/readme-material/settings.png)
-
-### 🎥 Demo Video
-
-A brief demo of the app can be found [here](docs/readme-material/demo.mp4).
 
 ### 📧 Contact
 
