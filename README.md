@@ -13,7 +13,7 @@ It's designed to show the status of light sensors in the IoT Lab.
    - [📲 Installation](#-installation)
       - [📦 From APK](#-from-apk)
       - [📔 From source](#-from-source)
-   - [🕹️ Usage](#%F0%9F%95%B9%EF%B8%8F-usage)
+   - [🕹️ Usage](#-usage)
    - [📸 Screenshots](#-screenshots)
 
 ## 🚀 Features
@@ -47,7 +47,7 @@ You may need to authorized unknown sources.
 ## 🕹️ Usage
 
 After launching the app, press the `Update` button to fetch data of the sensors.
-Fell free to configure the settings to fit your preferences (and so don't Swan's email address).
+Fell free to configure the settings to fit your preferences (and so don't spam Swan's email address).
 
 ## 📸 Screenshots
 
