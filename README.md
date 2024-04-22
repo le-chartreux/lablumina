@@ -3,10 +3,10 @@
 This Android application, developed in Java, is a TELECOM Nancy project.
 It's designed to show the status of light sensors in the IoT Lab.
 
-## Table of Contents 📃
+## 📃 Table of Contents
 
 - [🌟 lablumina 📱](#-lablumina-)
-   - [Table of Contents 📃](#table-of-contents-)
+   - [📃 Table of Contents](#-table-of-contents)
    - [🚀 Features](#-features)
    - [🎥 Demo Video](#-demo-video)
    - [📋 Prerequisites](#-prerequisites)
